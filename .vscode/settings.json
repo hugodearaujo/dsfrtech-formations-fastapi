@@ -1,5 +1,13 @@
 {
   "editor.tabSize": 4,
   "editor.indentSize": "tabSize",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/__pycache__": true,
+  }
 }
