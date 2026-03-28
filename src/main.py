@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from .routes.users import users_router
+from .routes.items import items_router
 
 app = FastAPI(
     title="DSFRTech Formations FastAPI introduction",
@@ -19,3 +20,4 @@ async def health():
 
 
 app.include_router(users_router)
+app.include_router(items_router)

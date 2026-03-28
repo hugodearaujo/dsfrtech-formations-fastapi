@@ -13,9 +13,9 @@ users_router = APIRouter(prefix="/users", tags=["users"])
 
 
 users_data = [
-    {"id": 1, "name": "Alice"},
-    {"id": 2, "name": "Bob"},
-    {"id": 3, "name": "Charlie"},
+    {"id": 1, "name": "Alice", "age": 30},
+    {"id": 2, "name": "Bob", "age": 25},
+    {"id": 3, "name": "Charlie", "age": 35},
 ]
 
 
@@ -46,7 +46,7 @@ async def get_user(user_id: int):
 # Create One
 @users_router.post("", status_code=201, response_model=CreateUserResponse)
 async def create_user(data: CreateUserData):
-    new_user = {"id": len(users_data) + 1, "name": data.name}
+    new_user = {"id": len(users_data) + 1, "name": data.name, "age": data.age}
     users_data.append(new_user)
     return {"message": "User created", "user": new_user}
 
@@ -57,6 +57,7 @@ async def update_user(user_id: int, data: UpdateUserData):
     for user in users_data:
         if user["id"] == user_id:
             user["name"] = data.name
+            user["age"] = data.age
             return {"message": f"User with ID {user_id} updated", "user": user}
     return {"message": f"User with ID {user_id} not found", "user": None}
 

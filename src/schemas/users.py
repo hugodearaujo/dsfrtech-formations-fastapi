@@ -5,6 +5,7 @@ from typing import Optional
 class User(BaseModel):
     id: int
     name: str
+    age: int
 
 
 class GetUsersResponse(BaseModel):
@@ -19,6 +20,7 @@ class GetUserResponse(BaseModel):
 
 class CreateUserData(BaseModel):
     name: str
+    age: int
 
 
 class CreateUserResponse(BaseModel):
@@ -28,6 +30,7 @@ class CreateUserResponse(BaseModel):
 
 class UpdateUserData(BaseModel):
     name: str
+    age: int
 
 
 class UpdateUserResponse(BaseModel):
